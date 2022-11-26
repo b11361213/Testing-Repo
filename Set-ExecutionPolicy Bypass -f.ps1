@@ -20,4 +20,4 @@ $add = $GCC_PATH
 # 新增 gcc 環境變數
 
 shutdown /l
-# 重新啟動使機碼變更生效
+# 登出使機碼變更生效
