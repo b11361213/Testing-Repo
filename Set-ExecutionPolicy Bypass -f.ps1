@@ -12,11 +12,11 @@ $lang.Add("ja-JP")
 Set-WinUserLanguageList $lang
 # 設定語言
 
-$path = [System.Environment]::GetEnvironmentVariable("PATH", "user")
-$add = $GCC_PATH
+# $path = [System.Environment]::GetEnvironmentVariable("PATH", "user")
+# $add = $GCC_PATH
 # user PATH: "user", system PATH: "machine"
 
-[System.Environment]::SetEnvironmentVariable("PATH", $path + ";" + $add, "user")
+# [System.Environment]::SetEnvironmentVariable("PATH", $path + ";" + $add, "user")
 # 新增 gcc 環境變數
 
 shutdown /l
