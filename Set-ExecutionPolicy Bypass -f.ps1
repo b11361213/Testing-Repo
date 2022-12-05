@@ -1,6 +1,7 @@
 # Set-ExecutionPolicy Bypass -f.ps1
 
 $GCC_PATH = "C:\MinGW\bin"
+$SQLITE_PATH = "C:\SQLite"
 
 reg add "HKCU\Control Panel\Mouse" /f /v MouseSensitivity /d 5
 # 更改滑鼠靈敏度
@@ -12,11 +13,11 @@ $lang.Add("ja-JP")
 Set-WinUserLanguageList $lang
 # 設定語言
 
-# $path = [System.Environment]::GetEnvironmentVariable("PATH", "user")
+$path = [System.Environment]::GetEnvironmentVariable("PATH", "user")
 # $add = $GCC_PATH
 # user PATH: "user", system PATH: "machine"
 
-# [System.Environment]::SetEnvironmentVariable("PATH", $path + ";" + $add, "user")
+[System.Environment]::SetEnvironmentVariable("PATH", $path + ";" + $SQLITE_PATH, "user")
 # 新增 gcc 環境變數
 
 shutdown /l
