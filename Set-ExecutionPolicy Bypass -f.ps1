@@ -18,7 +18,10 @@ $path = [System.Environment]::GetEnvironmentVariable("PATH", "user")
 # user PATH: "user", system PATH: "machine"
 
 [System.Environment]::SetEnvironmentVariable("PATH", $path + ";" + $SQLITE_PATH, "user")
-# 新增 gcc 環境變數
+# 新增 SQLite 環境變數
+
+winget install Google.Chrome
+# 更新 Google Chrome
 
 shutdown /l
 # 登出使機碼變更生效
