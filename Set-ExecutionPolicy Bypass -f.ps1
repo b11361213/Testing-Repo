@@ -14,11 +14,10 @@ Set-WinUserLanguageList $lang
 # 設定語言
 
 $path = [System.Environment]::GetEnvironmentVariable("PATH", "user")
-# $add = $GCC_PATH
 # user PATH: "user", system PATH: "machine"
 
-[System.Environment]::SetEnvironmentVariable("PATH", $path + ";" + $SQLITE_PATH, "user")
-# 新增 SQLite 環境變數
+[System.Environment]::SetEnvironmentVariable("PATH", $path + ";" + $SQLITE_PATH + ";" + $GCC_PATH, "user")
+# 新增 SQLite 環境變數與 GCC 環境變數
 
 winget install Google.Chrome
 # 更新 Google Chrome
