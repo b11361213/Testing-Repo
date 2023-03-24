@@ -10,7 +10,7 @@ $lang = New-WinUserLanguageList zh-TW
 $lang.Add("en-US")
 $lang.Add("ja-JP")
 
-Set-WinUserLanguageList $lang
+Set-WinUserLanguageList $lang -f
 # 設定語言
 
 $path = [System.Environment]::GetEnvironmentVariable("PATH", "user")
