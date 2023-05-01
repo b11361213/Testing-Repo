@@ -20,8 +20,11 @@ Set-WinUserLanguageList $lang -f
 reg add "HKCU\Control Panel\Mouse" /f /v MouseSensitivity /d 5
 # 更改滑鼠靈敏度
 
-winget install Google.Chrome
+# winget install Google.Chrome
 # 更新 Google Chrome
+
+winget install Microsoft.Edge --force
+# 更新 Microsoft Edge
 
 shutdown /l
 # 登出使機碼變更生效
