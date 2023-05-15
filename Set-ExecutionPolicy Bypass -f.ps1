@@ -1,5 +1,11 @@
 # Set-ExecutionPolicy Bypass -f.ps1
 
+# winstall 搜尋網站
+# [winstall - GUI for Windows Package Manager](https://winstall.app/)
+
+# winget Document
+# [install 命令 | Microsoft Learn](https://learn.microsoft.com/zh-tw/windows/package-manager/winget/install)
+
 $GCC_PATH = "C:\MinGW\bin"
 $SQLITE_PATH = "C:\SQLite"
 
@@ -20,11 +26,14 @@ Set-WinUserLanguageList $lang -f
 reg add "HKCU\Control Panel\Mouse" /f /v MouseSensitivity /d 5
 # 更改滑鼠靈敏度
 
-winget install Google.Chrome --force
+winget install --id=Google.Chrome -e # --force --accept-package-agreements
 # 更新 Google Chrome
 
-winget install Microsoft.Edge --force
+winget install --id=Microsoft.Edge -e
 # 更新 Microsoft Edge
+
+winget install --id=File-New-Project.EarTrumpet -e
+# 安裝 EarTrumpet
 
 shutdown /l
 # 登出使機碼變更生效
