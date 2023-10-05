@@ -21,6 +21,9 @@ $lang.Add("en-US")
 $lang.Add("ja-JP")
 
 Set-WinUserLanguageList $lang -f
+
+Install-Language en-US
+Install-Language ja-JP
 # 設定語言
 
 reg add "HKCU\Control Panel\Mouse" /f /v MouseSensitivity /d 5
@@ -28,7 +31,7 @@ reg add "HKCU\Control Panel\Mouse" /f /v MouseSensitivity /d 5
 
 winget uninstall --id=Google.Chrome -e --accept-source-agreements
 
-winget install --id=Google.Chrome -e --accept-source-agreements # --force --accept-package-agreements
+winget install --id=Google.Chrome -e --accept-source-agreements
 # 更新 Google Chrome
 
 # winget install --id=Microsoft.Edge -e --accept-source-agreements
