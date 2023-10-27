@@ -22,18 +22,30 @@ $lang.Add("ja-JP")
 
 Set-WinUserLanguageList $lang -f
 
-Install-Language en-US
-Install-Language ja-JP
-# 設定語言
+try {
+    Install-Language en-US -ErrorAction Stop
+    Install-Language ja-JP -ErrorAction Stop
+    # 設定語言
+}
+catch {
+    Write-Output "`n`"Install-Language`" command are not support!"
+    # Write-Output $Error[0]
+}
 
 reg add "HKCU\Control Panel\Mouse" /f /v MouseSensitivity /d 5
 # 更改滑鼠靈敏度
 
-winget install --id=Google.Chrome -e --accept-source-agreements
-# 更新 Google Chrome
+try {
+    winget install --id=Google.Chrome -e --accept-source-agreements
+    # 更新 Google Chrome
 
-winget install --id=File-New-Project.EarTrumpet -e --accept-source-agreements
-# 安裝 EarTrumpet
+    winget install --id=File-New-Project.EarTrumpet -e --accept-source-agreements
+    # 安裝 EarTrumpet
+}
+catch {
+    Write-Output "`n`"winget`" command are not support!"
+    # Write-Output $Error[0]
+}
 
 shutdown /l
 # 登出使機碼變更生效
