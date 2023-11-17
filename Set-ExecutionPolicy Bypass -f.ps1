@@ -47,5 +47,7 @@ catch {
     # Write-Output $Error[0]
 }
 
+rm -r 'C:\tools\*.bat'
+
 shutdown /l
 # 登出使機碼變更生效
