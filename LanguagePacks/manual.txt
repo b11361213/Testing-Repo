@@ -1,0 +1,11 @@
+// install command
+lpksetup /i /p "path to .cab file"		// with GUI
+lpksetup /i /p "path to .cab file"		// without GUI
+
+// command reference
+https://answers.microsoft.com/en-us/windows/forum/all/how-to-install-a-language-pack-using-command-line/6ca42500-0438-4a34-93d1-2137a5965fe8
+
+// cab file download manual
+https://learn.microsoft.com/en-us/answers/questions/1325598/windows-10-22h2-language-pack-download-location-li
+
+https://learn.microsoft.com/en-us/azure/virtual-desktop/language-packs

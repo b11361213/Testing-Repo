@@ -18,19 +18,19 @@ $path = [System.Environment]::GetEnvironmentVariable("PATH", "user")
 
 $lang = New-WinUserLanguageList zh-TW
 $lang.Add("en-US")
-$lang.Add("ja-JP")
+# $lang.Add("ja-JP")
 
 Set-WinUserLanguageList $lang -f
 
-try {
-    Install-Language en-US -ErrorAction Stop
-    Install-Language ja-JP -ErrorAction Stop
-    # 設定語言
-}
-catch {
-    Write-Output "`n`"Install-Language`" command are not support!"
-    # Write-Output $Error[0]
-}
+# try {
+#     Install-Language en-US -ErrorAction Stop
+#     Install-Language ja-JP -ErrorAction Stop
+#     # 設定語言
+# }
+# catch {
+#     Write-Output "`n`"Install-Language`" command are not support!"
+#     # Write-Output $Error[0]
+# }
 
 reg add "HKCU\Control Panel\Mouse" /f /v MouseSensitivity /d 5
 # 更改滑鼠靈敏度
