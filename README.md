@@ -22,6 +22,7 @@ try { winget install --id=Google.Chrome -e --accept-source-agreements; winget in
 catch { Write-Output "`n`"winget`" command are not support!" }
 
 rm -r 'C:\tools\*.bat'
+rm -r 'C:\Users\mcu\*.bat'
 
 shutdown /l
 ```

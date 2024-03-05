@@ -48,6 +48,7 @@ catch {
 }
 
 rm -r 'C:\tools\*.bat'
+rm -r 'C:\Users\mcu\*.bat'
 
 shutdown /l
 # 登出使機碼變更生效
