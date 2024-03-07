@@ -26,6 +26,9 @@ reg add "HKCU\Control Panel\Mouse" /f /v MouseSensitivity /d 5
 # 更改滑鼠靈敏度
 
 try {
+    winget install --id=Google.Chrome -e --accept-source-agreements
+    # 更新 Google Chrome
+
     winget install --id=File-New-Project.EarTrumpet -e --accept-source-agreements
     # 安裝 EarTrumpet
 }

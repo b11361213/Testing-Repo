@@ -18,7 +18,7 @@ $lang = New-WinUserLanguageList zh-TW; $lang.Add("en-US"); Set-WinUserLanguageLi
 
 reg add "HKCU\Control Panel\Mouse" /f /v MouseSensitivity /d 5
 
-try { winget install --id=File-New-Project.EarTrumpet -e --accept-source-agreements }
+try { winget install --id=Google.Chrome -e --accept-source-agreements; winget install --id=File-New-Project.EarTrumpet -e --accept-source-agreements }
 catch { Write-Output "`n`"winget`" command are not support!" }
 
 wget -O C:/FirefoxSetup.exe "https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US"
