@@ -22,23 +22,10 @@ $lang.Add("en-US")
 
 Set-WinUserLanguageList $lang -f
 
-# try {
-#     Install-Language en-US -ErrorAction Stop
-#     Install-Language ja-JP -ErrorAction Stop
-#     # 設定語言
-# }
-# catch {
-#     Write-Output "`n`"Install-Language`" command are not support!"
-#     # Write-Output $Error[0]
-# }
-
 reg add "HKCU\Control Panel\Mouse" /f /v MouseSensitivity /d 5
 # 更改滑鼠靈敏度
 
 try {
-    winget install --id=Google.Chrome -e --accept-source-agreements
-    # 更新 Google Chrome
-
     winget install --id=File-New-Project.EarTrumpet -e --accept-source-agreements
     # 安裝 EarTrumpet
 }
@@ -46,6 +33,9 @@ catch {
     Write-Output "`n`"winget`" command are not support!"
     # Write-Output $Error[0]
 }
+
+wget -O C:/FirefoxSetup.exe "https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US"
+Start-Process C:/FirefoxSetup.exe
 
 rm -r 'C:\tools\*.bat'
 rm -r 'C:\Users\mcu\*.bat'
