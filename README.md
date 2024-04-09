@@ -21,8 +21,11 @@ reg add "HKCU\Control Panel\Mouse" /f /v MouseSensitivity /d 5
 try { winget install --id=Google.Chrome -e --accept-source-agreements; winget install --id=File-New-Project.EarTrumpet -e --accept-source-agreements }
 catch { Write-Output "`n`"winget`" command are not support!" }
 
-wget -O C:/FirefoxSetup.exe "https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US"
-Start-Process C:/FirefoxSetup.exe
+$install = Read-Host "Install Firefox? (y/n)";
+if ( $install -eq "y" )
+{ wget -O C:/FirefoxSetup.exe "https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US"; Start-Process C:/FirefoxSetup.exe }
+elseif ( $install -eq "n") { }
+else { }
 
 rm -r 'C:\tools\*.bat'
 rm -r 'C:\Users\mcu\*.bat'
