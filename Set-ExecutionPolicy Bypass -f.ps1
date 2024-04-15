@@ -6,14 +6,17 @@
 # winget Document
 # [install 命令 | Microsoft Learn](https://learn.microsoft.com/zh-tw/windows/package-manager/winget/install)
 
-$GCC_PATH = "C:\MinGW\bin"
-$SQLITE_PATH = "C:\SQLite"
+# $GCC_PATH = "C:\MinGW\bin"
+# $SQLITE_PATH = "C:\SQLite"
 
-$path = [System.Environment]::GetEnvironmentVariable("PATH", "user")
-# user PATH: "user", system PATH: "machine"
+# $path = [System.Environment]::GetEnvironmentVariable("PATH", "user")
+# # user PATH: "user", system PATH: "machine"
 
-[System.Environment]::SetEnvironmentVariable("PATH", $path + ";" + $SQLITE_PATH + ";" + $GCC_PATH, "user")
-# 新增 SQLite 環境變數與 GCC 環境變數
+# [System.Environment]::SetEnvironmentVariable("PATH", $path + ";" + $SQLITE_PATH + ";" + $GCC_PATH, "user")
+# # 新增 SQLite 環境變數與 GCC 環境變數
+
+
+$install = Read-Host "Install Firefox? (y/n)"
 
 
 $lang = New-WinUserLanguageList zh-TW
@@ -41,15 +44,13 @@ rm -r 'C:\tools\*.bat'
 rm -r 'C:\Users\mcu\*.bat'
 
 
-do { $install = Read-Host "Install Firefox? (y/n)";
-    if ( $install -eq 'y') {
-        wget -O C:/FirefoxSetup.exe "https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US"
-        Start-Process C:/FirefoxSetup.exe
-    }
-    if ( $install -eq 'n') { break; } }
-until ( $install -eq 'y' )
+if ( $install -eq 'y') {
+    wget -O C:/FirefoxSetup.exe "https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US"
+    Start-Process C:/FirefoxSetup.exe 
+    
+    do { $finished = Read-Host "Installation finished? (y)"; }
+    until ( $finished -eq 'y' )
+}
 
-do { $finished = Read-Host "Installation finished? (y)"; }
-until ( $finished -eq 'y' )
 shutdown /l
 # 登出使機碼變更生效

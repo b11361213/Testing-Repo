@@ -6,15 +6,10 @@
 ob'_'ov
 
 ```ps1
-$GCC_PATH = "C:\MinGW\bin"
-$SQLITE_PATH = "C:\SQLite"
+$install = Read-Host "Install Firefox? (y/n)"
 
-$path = [System.Environment]::GetEnvironmentVariable("PATH", "user")
-
-[System.Environment]::SetEnvironmentVariable("PATH", $path + ";" + $SQLITE_PATH + ";" + $GCC_PATH, "user")
-
-
-$lang = New-WinUserLanguageList zh-TW; $lang.Add("en-US"); Set-WinUserLanguageList $lang -f
+$lang = New-WinUserLanguageList zh-TW; $lang.Add("en-US")
+Set-WinUserLanguageList $lang -f
 
 reg add "HKCU\Control Panel\Mouse" /f /v MouseSensitivity /d 5
 
@@ -24,12 +19,10 @@ catch { Write-Output "`n`"winget`" command are not support!" }
 rm -r 'C:\tools\*.bat'
 rm -r 'C:\Users\mcu\*.bat'
 
-do { $install = Read-Host "Install Firefox? (y/n)";
-    if ( $install -eq 'y') { wget -O C:/FirefoxSetup.exe "https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US"; Start-Process C:/FirefoxSetup.exe }
-    if ( $install -eq 'n') { break; } }
-until ( $install -eq 'y' )
+if ( $install -eq 'y') {
+    wget -O C:/FirefoxSetup.exe "https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US"; Start-Process C:/FirefoxSetup.exe 
+    
+    do { $finished = Read-Host "Installation finished? (y)"; } until ( $finished -eq 'y' ) }
 
-do { $finished = Read-Host "Installation finished? (y)"; }
-until ( $finished -eq 'y' )
 shutdown /l
 ```
